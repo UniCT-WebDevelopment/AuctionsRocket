@@ -12,36 +12,68 @@ I moderatori gestiranno e applicheranno le regole del sito, essi possono bandire
 
 ## Sezioni
 
-Il sito web è composto da diverse sezioni:
+Il sito web è composto dalle seguenti sezioni principali:
 
-**Vetrina**: E' la pagina iniziale che mostra il benvenuto agli utenti non autenticati. Da qui è possibile registrarsi ed eseguire successivamente il login.
+### Vetrina
+La pagina iniziale che accoglie gli utenti non autenticati. Da qui è possibile registrarsi o eseguire il login.
 
-**Add Auction**: Pagina che permette l'inserimento di una nuova asta. Una volta compilato il form per l'asta ed invato, essa sarà messa in una lista di attesa (non sarà visibile a tutti) per poter essere esaminata da un moderatore. Il moderatore potrà infine decidere di approvarla (rendendola pubblica e attiva), oppure cancellarla.
+### Add Auction
+Pagina per l'inserimento di una nuova asta. Dopo aver completato il form, l'asta verrà inserita in una lista di attesa per la revisione da parte di un moderatore. Il moderatore potrà:
+- Approvare l'asta, rendendola pubblica e attiva.
+- Cancellarla.
 
-**Your Auctions**: Pagina che mostra tutte le aste che ha inserito l'utente autenticato.
-Solo le aste non ancora appovate da un moderatore o non scadute possono essere modificate e cancellate. La modifica di un'asta permette l'aggiornamento del nome, della categoria, della descrizione e delle immagini associate.
+### Your Auctions
+Sezione che mostra tutte le aste inserite dall'utente autenticato. Solo le aste non approvate o non scadute possono essere:
+- Modificate (nome, categoria, descrizione, immagini).
+- Cancellate.
 
-Un'asta può avere diversi stati: "Active" (l'asta è attiva e può ricevere nuove offerte), "Closed by a moderator" (l'asta è stata rifiutata da un moderatore durante la fase di review), "Cancelled" (l'asta è stata cancellata dal suo autore), "Sold" (l'asta è scaduta ed è stata vinta da un utente), "Expired" (l'asta è scaduta senza nessuna offerta), "Under Review" (l'asta è un attesa di un riscontro da parte di un moderatore e non è ancora pubblica).
+Le aste possono avere i seguenti stati:
+- **Active**: L'asta è attiva e può ricevere offerte.
+- **Closed by a moderator**: L'asta è stata rifiutata da un moderatore.
+- **Cancelled**: L'asta è stata cancellata dall'autore.
+- **Sold**: L'asta è scaduta ed è stata vinta.
+- **Expired**: L'asta è scaduta senza ricevere offerte.
+- **Under Review**: L'asta è in attesa di approvazione da parte di un moderatore.
 
-**Global Auctions**: E' la pagina in cui è possibile vedere tutte le aste pubblicate dagli altri utenti. Da qui è possibile filtrare i risultati inserendo una stringa specifica e cambiando la categoria della ricerca.
-I risultati visibili saranno le aste con lo stato "Active", mentre quelle "Sold" ed "Expired" saranno visibili solo fino alle 24 ore successive alla loro scadenza.
+### Global Auctions
+Pagina che elenca tutte le aste pubblicate dagli utenti. È possibile filtrare le aste per categoria o tramite una stringa di ricerca. Le aste con stato:
+- **Active** sono visibili a tutti.
+- **Sold** e **Expired** rimangono visibili per 24 ore dopo la scadenza.
 
-E' possibile cliccare le aste per poter vedere più informazioni come la descrizione, l'autore e l'ultimo offerente. Sarà possibile anche mettere tra i preferiti l'asta, offrire del denaro ed unirsi alla chat pubblica dell'asta.
+Cliccando su un'asta, si possono visualizzare ulteriori dettagli (descrizione, autore, ultimo offerente) e compiere azioni come:
+- Aggiungere l'asta ai preferiti.
+- Fare un'offerta (maggiore di quella attuale).
+- Partecipare alla chat pubblica dell'asta.
 
-Una volta fatta un'offerta valida (ovvero aver inserito un valore strettamente maggiore di quello attuale), essa verrà notificata a tutti gli utenti che avanno inserito l'asta nei preferiti. Il sistema imposterà l'asta come preferita in caso l'offerente non lo avesse già fatto.
+Le offerte valide vengono notificate agli utenti che hanno aggiunto l'asta ai preferiti. Se l'offerente non l'aveva ancora fatto, l'asta verrà automaticamente aggiunta ai suoi preferiti.
 
-**Favorite Auctions**: Da qui sarà possibile trovare velocemente le aste impostate prcedentemente come preferite. Al contrario della sezione "Global Auctions", le aste con lo stato "Sold" ed "Expired" saranno sempre visibili.
+### Favorite Auctions
+Sezione che raccoglie tutte le aste impostate come preferite dall'utente. A differenza di "Global Auctions", le aste con stato **Sold** ed **Expired** sono sempre visibili.
 
-**Users**: Mostra la lista di tutti gli utenti registrati al sito AuctionsRocket. Cliccando un utente verrà mostrata un'ulteriore finestra in cui sarà possbile leggere (a sinistra) informazioni su Nome, Cognome, Paese, Data di registrazione, e biografia. Sempre in questa colonna sarà possibile recensire l'utente (o aggiornare la propria recensione), segnalarlo e bandirlo (solo per moderatori). A destra invece sarà possibile consultare le aste inserite, quelle attive e quelle vinte. Inoltre sono riportate anche le maggiori offerte piazzate e le recensioni ricevute dagli altri utenti.
+### Users
+Pagina che mostra la lista di tutti gli utenti registrati. Cliccando su un utente, si aprirà una scheda con:
+- **A sinistra**: Informazioni personali (Nome, Cognome, Paese, Data di registrazione, Biografia) e la possibilità di:
+  - Recensire o aggiornare una recensione.
+  - Segnalare o bandire un utente (solo per moderatori).
+- **A destra**: Le aste inserite, attive e vinte dall'utente, oltre alle maggiori offerte fatte e le recensioni ricevute.
 
-**Account**: E' la pagina dedicata all'account dell'utente autenticato. Da qui sarà possibile modificare tutte le informazioni relative all'utente, comprese email e password.
-Inoltre poichè il sito utilizza le sessioni, è possibile da questa pagina anche eseguire il logout.
+### Account
+Pagina dedicata alla gestione dell'account dell'utente autenticato, dove è possibile:
+- Modificare le informazioni personali, email e password.
+- Eseguire il logout.
 
-**Notifications**: Sezione che elenca tutte le notifiche ricevute. Verranno notificati i seguenti eventi: asta vinta, asta persa, asta cancellata, asta terminata, nuova offerta, asta convalidata da un moderatore, asta rifiutata da un moderatore, nuovo feedback ricevuto, feedback esistente aggiornato, email aggiornata, password aggiornata.
+### Notifications
+Sezione che elenca tutte le notifiche ricevute. Gli eventi notificati includono:
+- Asta vinta, persa, cancellata, o terminata.
+- Nuova offerta su un'asta.
+- Asta convalidata o rifiutata da un moderatore.
+- Nuovo feedback ricevuto o aggiornato.
+- Email o password aggiornate.
 
-**Moderation**: Sezione visibile solamente ad utenti con permessi di amministratore. Essa è composta da altre due sottosezioni: 
-**Review auctions**: Sezione per la gestione delle nuove aste in lista di attesa (è possibile accettarle o cancellarle).
-**Reports center**: Sezione per la gestione delle segnalazioni ricevute. Da qui è possibile solo cancellare le segnalazioni, è possibile bandire e riammettere un utente interagendo con il pannello utente.
+### Moderation
+Visibile solo agli amministratori, è suddivisa in due sottosezioni:
+- **Review Auctions**: Gestione delle nuove aste in lista d'attesa (approvazione o cancellazione).
+- **Reports Center**: Gestione delle segnalazioni ricevute. Da qui è possibile cancellare le segnalazioni e, tramite il pannello utente, bandire o riammettere un utente.
 
 ## Requisiti
 
