@@ -1,6 +1,6 @@
 # Guida alla Configurazione dell'Applicazione Web AuctionsRocket
 
-## Introduzione
+## Introduzione 📑
 
 ![banner](https://github.com/user-attachments/assets/262ac341-7fc1-4b38-8278-dc2de61506b7)
 
@@ -10,7 +10,7 @@ Ogni utente può segnalare altri utenti e ricevere/inviare recensioni.
 
 I moderatori gestiranno e applicheranno le regole del sito, essi possono bandire, riammettere utenti e vedere le segnalazioni inviate.
 
-## Sezioni
+## Sezioni 🔗
 
 Il sito web è composto dalle seguenti sezioni principali:
 
@@ -75,13 +75,13 @@ Visibile solo agli amministratori, è suddivisa in due sottosezioni:
 - **Review Auctions**: Gestione delle nuove aste in lista d'attesa (approvazione o cancellazione).
 - **Reports Center**: Gestione delle segnalazioni ricevute. Da qui è possibile cancellare le segnalazioni e, tramite il pannello utente, bandire o riammettere un utente.
 
-## Requisiti
+## Requisiti 💼
 
 1. **Node.js**: E' necessario avere Node.js installato. Puoi scaricarlo da [nodejs.org](https://nodejs.org/).
 
 2. **Database Management System**: Per questo progetto è necessario utilizzare un DBMS con MySQL e creare un database utilizzando lo stesso nome impostato nel file `database_config.txt` (più info sono date successivamente).
 
-## Installazione
+## Installazione ⚙️
 
 1. **Dipendenze**: Installa i pacchetti Node.js necessari utilizzando npm. Esegui il comando seguente nella directory principale del progetto:
 
@@ -89,7 +89,7 @@ Visibile solo agli amministratori, è suddivisa in due sottosezioni:
     npm install <module>
     ```
 
-## Dipendenze
+## Dipendenze 💼
 
 I seguenti moduli Node.js sono necessari per questo progetto:
 
@@ -107,7 +107,7 @@ I seguenti moduli Node.js sono necessari per questo progetto:
 - `fs`
 - `mysql`
 
-## Configurazione
+## Configurazione 🔧
 
 1. **Configurazione del Database**: Modifica il file `database_config.txt` per impostare la connessione al tuo database.
 
@@ -134,7 +134,7 @@ I seguenti moduli Node.js sono necessari per questo progetto:
     PORT=49599
     ```
 
-## Avvio dell'Applicazione
+## Avvio dell'Applicazione 🔌
 
 1. **Avvia il Server**: Usa il seguente comando per avviare il server:
 
