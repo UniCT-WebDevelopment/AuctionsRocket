@@ -1,0 +1,214 @@
+html {
+    scroll-behavior: smooth;
+}
+
+div.vr {
+    color: rgb(58, 110, 223); 
+    width: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.text-break {
+    word-break: break-all;
+}
+
+.heart-full {
+    background-image: url("../imgs/heart.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 26px;
+    height: 26px;
+}
+
+.heart-empty {
+    background-image: url("../imgs/heart-black.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 26px;
+    height: 26px;
+}
+
+.icon-small {
+    width: 24px;
+    height: 24px;
+}
+
+.fs-7 {
+    font-size: 0.88rem;
+}
+
+div.web-info {
+    padding: 12%;
+    background-color: rgb(28, 65, 143);
+    background-image: url('../imgs/info-wallpaper3.png');
+    background-size: contain;
+}
+
+div.join-community-info {
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.center-aligned {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.right-aligned {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.navbar {
+    background-color: rgb(18, 55, 136);
+    background-size: contain;
+}
+
+ul.navbar-nav>li.nav-item>a.active {
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+ul.navbar-nav>li.nav-item>a.selected {
+    background-color: rgb(37, 87, 196);
+    border-radius: 5px;
+}
+
+ul.navbar-nav>li.nav-item>a.active:hover {
+    background-color: rgb(42, 80, 163);
+    border-radius: 5px;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+div.full-window {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.568);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.full-window>div.window-container {
+    height: auto;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    max-height: 80%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    overflow-y: auto;
+}
+
+div.full-window>div.window-container>div.window-top-bar {
+    position: sticky;
+    z-index: 11;
+    top: 0;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+div.report-background {
+    background-color: rgba(255, 23, 23, 0.171); 
+    border-radius: 10px;
+    padding: 10px;
+}
+
+nav.custom-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.chat-container {
+    position: absolute;
+    bottom: 0;
+    end: 0;
+    margin-right: 5rem;
+    border: 1px solid red;
+    height: 380px;
+    width: 350px;
+}
+.chat-header {
+    border: 1px solid orange;
+    padding: 5px;
+    background-color: white;
+}
+.chat-body {
+    border: 1px solid green;
+    overflow-y: auto;
+    margin-top: 60px; /* Adjust this value to move the chat body down */
+    height: calc(100% - 120px); /* Adjust this value to fit the available space */
+}
+.chat-footer {
+    position: absolute;
+    bottom: 0;
+    start: 0;
+    width: 100%;
+}
+.hover-shadow:hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    border-radius: 5px;
+}
+
+.center-cropped {
+    object-fit: cover;
+    object-position: center;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.overflow-y {
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

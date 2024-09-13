@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>AuctionsRocket</title>
+        <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico">
+        <link rel="stylesheet" href="assets/css/global.css">
+        <link rel="stylesheet" href="assets/css/chat.css">
+        <link rel="stylesheet" href="assets/css/rating_bar.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+            <symbol id="check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </symbol>
+            <symbol id="info-fill" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </symbol>
+            <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </symbol>
+        </svg>
+
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="nav_home" href="#">
+                    <img src="assets/imgs/logo.png" alt="Logo" height="24" class="d-inline-block align-text-top">
+                    <span class="text-light">AuctionsRocket</span>
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mb-2 mb-lg-0 w-100 justify-content-center" id="navbar_links" hidden>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" id="nav_dashboard_new_auction">Add auction</a>
+                    </li>
+                    <div class="vr d-none d-lg-block"></div>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" id="nav_dashboard_your_auctions">Your auctions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" id="nav_dashboard_global_auctions">Global auctions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" id="nav_dashboard_favorite_auctions">Favorite auctions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" id="nav_dashboard_users">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" id="nav_dashboard_your_account">Account</a>
+                    </li>
+                    <div class="vr d-none d-lg-block"></div>
+                    <li class="nav-item dropdown" id="staff_moderation" hidden>
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Moderation
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" id="nav_dashboard_review_auctions">Review auctions</a></li>
+                          <li><a class="dropdown-item" id="nav_dashboard_reports_center" href="#">Reports center</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <button class="btn btn-outline-info me-2" id="btn_show_register_form">Register</button>
+                <button class="btn btn-outline-info ms-2" id="btn_show_login_form">Login</button>
+
+                <a class="navbar-brand clickable" id="nav_logged_account" hidden>
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-center">
+                        <img logged_img src="assets/imgs/logo.png" width="40" height="40" class="d-inline-block align-text-top center-cropped circle">
+                        <span logged_name_surname class="m-1 text-light">logged_name_surname</span>
+                    </div>
+                </a>
+
+                <a class="navbar-brand clickable" id="nav_notifications" hidden>
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-center position-relative">
+                        <img src="assets/imgs/notifications.png" width="20" height="20" class="d-inline-block align-text-top center-cropped circle">
+
+                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-info border border-light rounded-circle" id="new_notifications_counter" style="font-size: 0.75rem; padding: 0.25em 0.5em; border-radius: 0.75rem;" hidden></span>
+                        </span>
+                    </div>
+                    
+                </a>
+              </div>
+            </div>
+        </nav>
+
+        <div id="not_logged_page">
+            <div class="container-fluid">
+                <div class="row web-info">
+                    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <h1 class="text-light">AuctionsRocket</h1>
+                        <h4 class="text-light">Where your bids take off!</h4>
+        
+                        <img src="assets/imgs/logo.png" class="w-25" alt="">
+                    </div>
+                    
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                        <span class="text-end fs-5 fw-light text-light p-3">
+                            Discover AuctionsRocket, your ultimate destination for exciting online auctions. 
+                            Bid on unique collectibles, the latest tech, and luxury items all from the comfort of your home. 
+                            Enjoy real-time bidding, auctions chat room, and an intuitive platform designed to make every 
+                            auction a thrilling experience. Join us and watch your bids soar!
+                        </span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container-fluid">
+                <div class="row join-community-info">
+                    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+        
+                        <h4 class="text-dark">Place bids on unique and hard-to-find items every day</h4>
+                        <h4 class="text-dark">Your auction journey starts now. Register today!</h4>
+                        
+        
+                        <img src="assets/imgs/community.png" class="w-25" alt="">
+                        
+                    </div>
+                    
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+        
+                        <div class="container" id="register_form" hidden>
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-md-10">
+                                    <h2>Register</h2>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center" id="register_alert_box" hidden>
+                                <div class="col-md-10">
+                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                        <svg class="bi flex-shrink-0 me-2 icon-small" role="img" aria-label="Danger:">
+                                            <use xlink:href="#exclamation-triangle-fill"/>
+                                        </svg>
+                                        <div id="register_alert_box_msg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="register_name_input" placeholder="Name">
+                                                <label for="register_name_input">Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="register_surname_input" placeholder="Surname">
+                                                <label for="register_surname_input">Surname</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="register_email_input" placeholder="name@example.com">
+                                        <label for="register_email_input">Email address</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="tel" class="form-control" id="register_phone_input" placeholder="Phone">
+                                        <label for="register_phone_input">Phone</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="register_biography_input" placeholder="Biography" style="height: 100px;"></textarea>
+                                        <label for="register_biography_input">Biography</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" id="register_country_input" aria-label="Country">
+                                                    <option selected>Select your country</option>
+                                                </select>
+                                                <label for="register_country_input">Country</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="register_shipping_address_input" placeholder="Shipping Address">
+                                                <label for="register_shipping_address_input">Shipping Address</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="register_password_input" placeholder="Password">
+                                        <label for="register_password_input">Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="register_password_repeat_input" placeholder="Repeat password">
+                                        <label for="register_password_repeat_input">Repeat password</label>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div>
+                                        Select your profile image
+                                        <input type="file" id="register_image_file" class="form-control" accept="image/*" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary mt-3" type="button" id="btn_send_register">Register
+                                            <span id="register_loading_btn_span" hidden>
+                                                <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                                <span role="status">Loading...</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="container" id="login_form">
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-md-10">
+                                    <h2>Login</h2>
+                                </div>
+                            </div>
+                
+                            <div class="row justify-content-center" id="login_alert_box" hidden>
+                                <div class="col-md-10">
+                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                        <svg class="bi flex-shrink-0 me-2 icon-small" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                                        <div id="login_alert_box_msg">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="login_email_input" placeholder="name@example.com">
+                                        <label for="login_email_input">Email address</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="password" class="form-control" id="login_password_input" placeholder="Password">
+                                        <label for="login_password_input">Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-10">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary" type="button" id="btn_send_login">Login
+                                            <span id="login_loading_btn_span" hidden>
+                                                <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                                <span role="status">Loading...</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center mt-4" id="global_danger_alert_box" hidden>
+            <div class="col-md-6">
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2 icon-small" role="img" aria-label="Danger:">
+                        <use xlink:href="#exclamation-triangle-fill"/>
+                    </svg>
+                    <div id="global_danger_alert_box_msg"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4" id="global_success_alert_box" hidden>
+            <div class="col-md-6">
+                <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2 icon-small" role="img" aria-label="Danger:">
+                        <use xlink:href="#check-circle-fill"/>
+                    </svg>
+                    <div id="global_success_alert_box_msg"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="dashboard_content" hidden>
+            <div class="row justify-content-center mt-5">
+
+                <div class="w-75" id="page_new_auction" hidden>
+                    <h4>Add new auction</h4>
+    
+                    <div class="row justify-content-center mt-5">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="new_auction_name_input" placeholder="Name">
+                                        <label for="new_auction_name_input">Name</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="new_auction_category_select" aria-label="Category">
+                                            <option selected>Select category</option>
+                                        </select>
+                                        <label for="new_auction_category_select">Category</label>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="new_auction_description_input" placeholder="Description" style="height: 100px;"></textarea>
+                                <label for="new_auction_description_input">Description</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="new_auction_starting_price_input" placeholder="Starting price">
+                                <label for="new_auction_starting_price_input">Starting price</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="new_auction_duration_input" placeholder="Starting price">
+                                <label for="new_auction_duration_input">Duration</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="new_auction_time_select" aria-label="Select time">
+                                    <option selected>Select time</option>
+                                </select>
+                                <label for="new_auction_time_select">Time</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="container text-center mt-3">
+                        <div class="row">
+                          <div class="col mb-2">
+                            Image 1
+                            <input type="file" id="new_auction_img_1_input" class="form-control" accept="image/*" required>
+                          </div>
+                          <div class="col mb-2">
+                            Image 2
+                            <input type="file" id="new_auction_img_2_input" class="form-control" accept="image/*" required>
+                          </div>
+                          <div class="col mb-2">
+                            Image 3
+                            <input type="file" id="new_auction_img_3_input" class="form-control" accept="image/*" required>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <img src="" class="rounded img-fluid" alt="..." width="200px" id="new_auction_img_1">
+                              </div>
+                              <div class="col">
+                                <img src="" class="rounded img-fluid" alt="..." width="200px" id="new_auction_img_2">
+                              </div>
+                              <div class="col">
+                                <img src="" class="rounded img-fluid" alt="..." width="200px" id="new_auction_img_3">
+                              </div>
+                        </div>
+                      </div>
+    
+                      <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary mt-4" type="button" id="btn_send_new_auction">Add new auction
+                                    <span id="loading_add_auction_btn_span" hidden>
+                                        <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                        <span role="status">Loading...</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="container w-75" id="page_your_auctions" hidden>
+                    <h4>Your auctions</h4>
+    
+                    <div class="col mt-5">
+                        <div id="your_auctions">
+                                        
+                        </div>
+    
+                        <nav aria-label="Page navigation" id="your_auctions_pagination">
+                        
+                        </nav>
+                    </div>
+                </div>
+                
+    
+                <div class="container w-75" id="page_global_auctions" hidden>
+                    <h4>Global auctions</h4>
+    
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="search_global_auction_input" placeholder="Search auctions..." aria-label="Search auctions...">
+                                <div class="w-auto">
+                                    <select class="form-select" id="search_category_select" aria-label="Category select">
+    
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-outline-secondary" id="btn_search_global_auction">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+    
+                    <div class="row row justify-content-center">
+                        <div class="col mt-5">
+                            <div id="others_auctions_compact">
+                                            
+                            </div>
+        
+                            <div id="others_auctions" hidden>
+                                            
+                            </div>
+    
+                            <nav aria-label="Page navigation" class="mt-5" id="others_auctions_pagination">
+                        
+                            </nav>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="container w-75" id="page_favorite_auctions" hidden>
+                    <h4>Favorite auctions</h4>
+    
+                    <div id="favorite_auctions">
+    
+    
+                    </div>
+    
+                    <nav aria-label="Page navigation" class="mt-5" id="favorite_auctions_pagination">
+                        
+                    </nav>
+                </div>
+    
+                <div class="container w-75" id="page_notifications" hidden>
+                    <h4>Notifications</h4>
+    
+                    <div id="notifications_list">
+    
+    
+                    </div>
+    
+                    <nav aria-label="Page navigation" id="notifications_list_pagination">
+                        
+                    </nav>
+                </div>
+    
+                <div class="container w-75" id="page_single_auction" hidden>
+                    <h4>Auction</h4>
+    
+                    <div id="preview_auction">
+    
+    
+                    </div>
+                </div>
+    
+                <div class="container w-75" id="page_registered_users" hidden>
+                    <h4>Registered users</h4>
+    
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="text" id="search_user_input" class="form-control" placeholder="Search user..." aria-label="Search user..." aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="btn_search_user">Search</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div id="registered_users">
+    
+    
+                    </div>
+    
+                    <nav aria-label="Page navigation" id="registered_users_pagination">
+                        
+                    </nav>
+                </div>
+    
+    
+                <div class="container w-75" id="page_review_auctions" hidden>
+                    <h4>Review auctions</h4>
+    
+                    <div class="col mt-5">
+                        <div id="review_auctions">
+                                        
+                        </div>
+    
+                        <nav aria-label="Page navigation" id="review_auctions_pagination">
+                        
+                        </nav>
+                    </div>
+                </div>
+    
+                <div class="container w-75" id="page_reports_center" hidden>
+                    <h4>Report center</h4>
+    
+                    <div class="col mt-5">
+                        <div id="reports_center">
+                                        
+                        </div>
+    
+                        <nav aria-label="Page navigation" id="reports_center_pagination">
+                        
+                        </nav>
+                    </div>
+                </div>
+                
+    
+                <div class="container w-75" id="page_edit_account" hidden>
+                    <h4>Your account</h4>
+    
+                    <div class="col mt-5">
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <div class="card m-2">
+                                    <img src="..." class="card-img-top" alt="..." account_image>
+                                    <div class="p-2">
+                                        Change image
+                                        <input type="file" id="edit_account_image_file" class="form-control" accept="image/*" required>
+                                    </div>
+    
+                                    <div class="card-body justify-content-center">
+                                        <h4 class="d-block" name_surname>Name</h4><br>
+                                        <h6 class="d-inline-block">Registered since:</h6> <span account_reg_date>Registration date</span> <br>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2 mt-3">
+                                    <button type="button" class="btn btn-danger" id="btn_log_out">Log out</button>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+    
+                                <div class="row justify-content-center">
+                                    <h4>General informations</h4>
+    
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="edit_account_name_input" placeholder="Name">
+                                                    <label for="edit_account_name_input">Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="edit_account_surname_input" placeholder="Surname">
+                                                    <label for="edit_account_surname_input">Surname</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input type="tel" class="form-control" id="edit_account_phone_input" placeholder="Phone">
+                                            <label for="edit_account_phone_input">Phone</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <textarea class="form-control" id="edit_account_biography_input" placeholder="Biography" style="height: 100px;"></textarea>
+                                            <label for="edit_account_biography_input">Biography</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3">
+                                                    <select class="form-select" id="edit_account_country_input" aria-label="Country">
+                                                        <option selected>Select your country</option>
+                                                    </select>
+                                                    <label for="edit_account_country_input">Country</label>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control" id="edit_account_address_input" placeholder="Shipping Address">
+                                                    <label for="edit_account_address_input">Shipping Address</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" type="button" id="btn_send_update_infos">Update infos
+                                    </button>
+                                </div>
+    
+                                <div class="row justify-content-center mt-5">
+                                    <h4>Update email</h4>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="edit_account_email_input" placeholder="name@example.com">
+                                            <label for="edit_account_email_input">Email address</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" type="button" id="btn_send_update_email">Update email
+                                    </button>
+                                </div>
+                                
+                                <div class="row justify-content-center mt-5">
+                                    <h4>Update password</h4>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="edit_account_actual_password_input" placeholder="Password">
+                                            <label for="edit_account_actual_password_input">Actual password</label>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="edit_account_new_password_input" placeholder="Password">
+                                            <label for="edit_account_new_password_input">New password</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="edit_account_repeat_password_input" placeholder="Repeat password">
+                                            <label for="edit_account_repeat_password_input">Repeat new password</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" type="button" id="btn_send_update_password">Update password
+                                    </button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="full-window" id="edit_auction_panel" hidden>
+            <div class="window-container w-75">
+                <div class="row window-top-bar">
+                    <div class="col-md-6">
+                        <h4>Edit auction</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn-close float-md-end" id="btn_close_edit_auction_panel" aria-label="Close"></button>
+                    </div>
+                </div>
+                
+                <div class="row justify-content-center mt-3" id="edit_panel_alert_box" hidden>
+                    <div class="col-md-6">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2 icon-small" role="img" aria-label="Danger:">
+                                <use xlink:href="#exclamation-triangle-fill"/>
+                            </svg>
+                            <div id="edit_panel_alert_box_msg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="edit_auction_name_input" placeholder="Name">
+                                    <label for="edit_auction_name_input">Name</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="edit_auction_category_select" aria-label="Category">
+                                        <option selected>Select category</option>
+                                    </select>
+                                    <label for="edit_auction_category_select">Category</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="edit_auction_description_input" placeholder="Description" style="height: 100px;"></textarea>
+                            <label for="edit_auction_description_input">Description</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container text-center mt-3">
+                    <div class="row">
+                      <div class="col mb-2">
+                        Image 1
+                        <input type="file" id="edit_auction_img_1_input" class="form-control" accept="image/*" required>
+                      </div>
+                      <div class="col mb-2">
+                        Image 2
+                        <input type="file" id="edit_auction_img_2_input" class="form-control" accept="image/*" required>
+                      </div>
+                      <div class="col mb-2">
+                        Image 3
+                        <input type="file" id="edit_auction_img_3_input" class="form-control" accept="image/*" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img src="" class="rounded img-fluid" alt="..." width="200px" id="edit_auction_img_1">
+                          </div>
+                          <div class="col">
+                            <img src="" class="rounded img-fluid" alt="..." width="200px" id="edit_auction_img_2">
+                          </div>
+                          <div class="col">
+                            <img src="" class="rounded img-fluid" alt="..." width="200px" id="edit_auction_img_3">
+                          </div>
+                    </div>
+                  </div>
+
+                  <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary mt-4" type="button" id="btn_send_edit_auction">Edit auction
+                                <span id="loading_edit_auction_btn_span" hidden>
+                                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                    <span role="status">Loading...</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-window" id="user_profile_panel" hidden>
+            <div class="window-container w-75">
+
+                <div class="row window-top-bar">
+                    <div class="col-md-6">
+                        <h4>Account</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn-close float-md-end" id="btn_close_user_profile_panel" aria-label="Close"></button>
+                    </div>
+                </div>
+        
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <div class="card m-2">
+                            <img src="..." class="card-img-top" alt="..." account_image>
+                            <div class="card-body">
+                                <span banned class="fw-small text-danger bg-danger-subtle" hidden>This user is banned: <span class="fw-medium" ban_reason>reason</span></span> <br>
+                                <h6 class="d-inline-block">Name:</h6> <span account_name>Name</span> <br>
+                                <h6 class="d-inline-block">Surname:</h6> <span account_surname>Surname</span> <br>
+                                <h6 class="d-inline-block">Country:</h6> <span account_country>Country</span> <br>
+                                <h6 class="d-inline-block">Registered since:</h6> <span account_reg_date>Registration date</span> <br>
+                                <div style="overflow-y: auto; max-height: 200px;">
+                                    <h6 class="d-inline-block">Biography:</h6> <span account_biography>Biography</span> <br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container mt-3" id="user_rate_form">
+                            <h4>Rate user</h4>
+    
+                            <div class="d-flex justify-content-center align-items-center">
+                                <span feed_star_1 class="star" title="Terrible Experience">★</span>
+                                <span feed_star_2 class="star" title="Poor Experience">★</span>
+                                <span feed_star_3 class="star" title="Average Experience">★</span>
+                                <span feed_star_4 class="star" title="Good Experience">★</span>
+                                <span feed_star_5 class="star" title="Excellent Experience">★</span>
+                                <span class="fs-5 ms-3" id="user_feedback_star_output">0/5</span>
+                            </div>
+
+                            <div class="form-floating mt-2">
+                                <textarea class="form-control" placeholder="Write a feedback" id="user_rate_feedback_input"></textarea>
+                                <label for="user_rate_feedback_input">Write a feedback</label>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-2">
+                                <button type="button" class="btn btn-outline-info" id="btn_send_feedback" hidden>Send feedback</button>
+                                <button type="button" class="btn btn-outline-info" id="btn_update_feedback" hidden>Update feedback</button>
+                            </div>
+                        </div>
+
+                        <div class="container mt-3" id="user_report_form" hidden>
+                            <h4>Report user</h4>
+                            <div class="form-floating mt-2">
+                                <select class="form-select" id="report_reason_select" aria-label="Floating label select example">
+
+                                </select>
+                                <label for="report_reason_select">Select reason or make a new one</label>
+                            </div>
+    
+                            <div class="form-floating mt-2" id="report_reason_container" hidden>
+                                <textarea class="form-control" placeholder="Write a custom reason" id="report_reason_input"></textarea>
+                                <label for="floatingTextarea">Write a custom reason</label>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-2">
+                                <button type="button" class="btn btn-outline-warning" id="btn_send_report">Send report</button>
+                            </div>
+                        </div>
+
+                        <div class="container mt-3" id="user_ban_unban_form" hidden>
+                            <h4>Ban/unban user</h4>
+    
+                            <div class="form-floating mt-2" id="ban_form">
+                                <textarea class="form-control" placeholder="Write a custom reason" id="ban_reason_input"></textarea>
+                                <label for="ban_reason_input">Write a reason</label>
+                                <div class="d-grid gap-2 mt-2">
+                                    <button type="button" class="btn btn-outline-danger" id="btn_ban_user">Ban user</button>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-2">
+                                <button type="button" class="btn btn-outline-success" id="btn_unban_user" hidden>Unban user</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row mt-3">
+                            <h5>Posted auctions</h5>
+                            <div class="justify-content-center overflow-y" id="user_panel_posted_auctions">
+                                
+                            </div>
+                        </div>
+                
+                        <div class="row mt-3">
+                            <h5>Active auctions</h5>
+                            <div class="justify-content-center overflow-y" id="user_panel_active_auctions">
+                                
+                            </div>
+                        </div>
+                
+                        <div class="row mt-3">
+                            <h5>Won auctions</h5>
+                            <div class="justify-content-center overflow-y" id="user_panel_won_auctions">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <h5>Placed bids</h5>
+                            <div class="justify-content-center overflow-y" id="user_panel_placed_bids">
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <h5>Feedback</h5>
+                            <div class="justify-content-center overflow-y" id="user_panel_received_feedback">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-container" id="chat_container" hidden>
+            <div class="chat-top-bar">
+                <div class="chat-message-header">
+                    <div>
+                        <h6 id="chat_name" class="text-nowrap text-truncate" style="max-width: 260px;">Chat - name surname</h6>
+                    </div>
+                    <div>
+                        <button id="chat_close_btn" type="button" class="btn-close" id="btn_close_chat_panel" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-divisor"></div>
+            <div class="chat-content" id="chat_content_messages">
+
+            </div>
+            <div class="chat-input">
+                <div class="input-group">
+                    <input type="text" id="send_message_input" class="form-control" placeholder="Message" aria-label="Message" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" id="send_message_btn" type="button" id="button-addon2">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-window" id="confirm_panel" hidden>
+            <div class="window-container w-50">
+                <div class="row window-top-bar">
+                    <div class="col-md-6">
+                        <h4>Confirm</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn-close float-md-end" id="btn_close_confirm_panel" aria-label="Close"></button>
+                    </div>
+                </div>
+                
+                <div class="row mt-3 mb-3">
+                    <div class="col-md-12 justify-content-center">
+                        <p class="text-center" id="confirm_panel_msg">Message</p>
+                        <div class="d-flex flex-column flex-md-row justify-content-center">
+                            <button type="button" class="btn btn-primary m-3" id="btn_confirm_yes">Yes</button>
+                            <button class="btn btn-danger m-3" type="button" id="btn_confirm_no">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="live_toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="assets/imgs/logo_notification.png" class="rounded me-2" alt="...">
+                <strong class="me-auto">AuctionsRocket</strong>
+                <small>Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body" id="live_toast_msg">
+                Message
+              </div>
+            </div>
+          </div>
+
+        <footer>
+
+        </footer>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/compressorjs@1.2.1/dist/compressor.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="assets/js/utilities.js"></script>
+        <script src="assets/js/pagination_manager.js"></script>
+        <script src="assets/js/client_main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+.star {
+    font-size: 3vh;
+    cursor: pointer;
+}
+   
+.one {
+    color: rgb(255, 0, 0);
+}
+
+.two {
+    color: rgb(255, 106, 0);
+}
+
+.three {
+    color: rgb(206, 212, 24);
+}
+
+.four {
+    color: rgb(206, 212, 24);
+}
+
+.five {
+    color: rgb(34, 216, 21);
+}
