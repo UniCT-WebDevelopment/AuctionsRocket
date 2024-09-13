@@ -2,7 +2,7 @@
 
 ## Introduzione
 
-![logo](https://github.com/user-attachments/assets/36e3bfe0-dfb8-4a08-8095-497fe1a8c462)
+![banner](https://github.com/user-attachments/assets/262ac341-7fc1-4b38-8278-dc2de61506b7)
 
 AuctionsRocket è un sito web che permette di inserire oggetti da mettere all'asta. Tutti gli utenti registrati potranno partecipare alle aste ed inserirne di nuove. Il sito offre la possiblità di unirsi ad una chat live per ogni asta per partecipare alla discussione di tutti gli interessati ad essa e seguirne ogni aggiornamento.
 
